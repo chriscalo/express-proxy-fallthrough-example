@@ -9,22 +9,18 @@ const ports = require("./ports.js");
   run("npx", "node api2.js");
   
   const app = express();
-  app.use((req, res, next) => { console.log("before API1"); next(); });
-  app.use(proxy(`localhost:${ports.api1}`, {
-    skipToNextHandlerFilter(proxyRes) {
-      return proxyRes.statusCode === 404;
-    },
-  }));
-  app.use((req, res, next) => { console.log("after API1"); next(); });
-  app.use((req, res, next) => { console.log("before API2"); next(); });
-  app.use(proxy(`localhost:${ports.api2}`, {
-    skipToNextHandlerFilter(proxyRes) {
-      return proxyRes.statusCode === 404;
-    },
-  }));
-  app.use((req, res, next) => { console.log("after API2"); next(); });
+  app.use(proxyWithFallthrough(ports.api1));
+  app.use(proxyWithFallthrough(ports.api2));
   
   const { url } = await listen(app, ports.app);
   console.log(`Application listening at ${url}`);
   
 })();
+
+function proxyWithFallthrough(port) {
+  return proxy(`localhost:${port}`, {
+    skipToNextHandlerFilter(proxyRes) {
+      return proxyRes.statusCode === 404;
+    },
+  });
+}
