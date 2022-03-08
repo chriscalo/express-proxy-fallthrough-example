@@ -1,0 +1,16 @@
+{
+  "name": "express-http-proxy-bug",
+  "version": "0.1.0",
+  "description": "Minimal reproduction for bug in `express-http-proxy`",
+  "scripts": {
+    "start": "nodemon start.js"
+  },
+  "author": "chris.calo@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "2-thenable": "^1.0.0",
+    "express": "^4.17.3",
+    "express-http-proxy": "^1.6.3",
+    "nodemon": "^2.0.15"
+  }
+}
