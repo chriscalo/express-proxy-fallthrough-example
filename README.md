@@ -1,5 +1,5 @@
 # express-http-proxy-bug
-Minimal reproduction for bug in `express-http-proxy`
+Minimal reproduction for `express-http-proxy` [issue #501](https://github.com/villadora/express-http-proxy/issues/501)
 
 ### Steps to reproduce:
 1. Clone this repo and peek at [`start.js`](./start.js) to see that it's proxying to two APIs running in separate processes.
