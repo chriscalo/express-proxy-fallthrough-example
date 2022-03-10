@@ -12,7 +12,7 @@ Minimal reproduction for bug in `express-http-proxy`
 - Try commenting out the line that proxies to API 1 (`app.use(proxyWithFallthrough(ports.api1));`) and notice that visiting `/api2` now works when it previously didn't.
 
 ### Expected result:
-- I expect to that if the first `handleProxy(req, res, next)` function returns a 404 response (because I'm using `skipToNextHandlerFilter()`), the next `handleProxy(req, res, next)` function should be able to respond.
+- I expect that if the first `handleProxy(req, res, next)` function returns a 404 response (because I'm using `skipToNextHandlerFilter()`), the next `handleProxy(req, res, next)` function should be able to respond.
 
 ### Notes
 - there's a reason why I'm not able to prefix each proxy middleware with a single path `/api1` or `/api2`
