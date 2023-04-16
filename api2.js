@@ -13,4 +13,3 @@ api.get("/api2", (req, res, next) => {
   const { url } = await listen(api, ports.api2);
   console.log(`API 2 listening at ${url}`);
 })();
-
