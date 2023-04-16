@@ -1,9 +1,7 @@
 const express = require("express");
-const { createProxyMiddleware, responseInterceptor } = require("http-proxy-middleware");
+const { createProxyMiddleware } = require("http-proxy-middleware");
 const { run, listen } = require("./util.js");
 const ports = require("./ports.js");
-
-console.log(createProxyMiddleware, responseInterceptor);
 
 (async function main() {
   console.log("Starting application…");
