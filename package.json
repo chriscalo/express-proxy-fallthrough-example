@@ -1,7 +1,7 @@
 {
-  "name": "express-http-proxy-bug",
+  "name": "express-proxy-fallthrough-example",
   "version": "0.1.0",
-  "description": "Minimal reproduction for bug in `express-http-proxy`",
+  "description": "Proxy middleware for passing requests on to another port or address. When a 404 is received, falls through to the next Express handler.",
   "scripts": {
     "start": "nodemon start.js"
   },
@@ -10,7 +10,7 @@
   "dependencies": {
     "2-thenable": "^1.0.0",
     "express": "^4.17.3",
-    "express-http-proxy": "^1.6.3",
+    "http-proxy-middleware": "^2.0.6",
     "nodemon": "^2.0.15"
   }
 }
